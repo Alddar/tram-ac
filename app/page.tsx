@@ -15,7 +15,10 @@ export default async function Home() {
                 ['ids[]', 'U854Z2P']
             ]),
         {
-            headers
+            headers,
+            next: {
+                revalidate: 30
+            }
         }
     );
     const departures = await res.json();
