@@ -6,7 +6,7 @@ import StationSelect from "./station-select";
 
 export const revalidate = 43200;
 
-export const getOptions = cache(async () => {
+const getOptions = cache(async () => {
   const res = await fetch("https://data.pid.cz/stops/json/stops.json", {
     cache: "no-cache",
   });
