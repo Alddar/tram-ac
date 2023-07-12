@@ -9,7 +9,7 @@ export function Reload() {
   useEffect(() => {
     const interval = setInterval(() => {
       router.refresh()
-    }, 60000)
+    }, 30000)
 
     return () => clearInterval(interval)
   }, [router])
