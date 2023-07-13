@@ -13,7 +13,7 @@ const getOptions = cache(async () => {
   const stops = await res.json();
   const options: { value: string[]; label: string }[] = [];
 
-  stops.stopGroups.forEach((stopGroup: any) => {
+  stops.stopGroups.forEach((stopGroup: any) => { 
     if (
       stopGroup.stops.length > 0 &&
       stopGroup.stops.some((stop: any) =>

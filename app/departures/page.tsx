@@ -42,7 +42,7 @@ export default async function Departures({
             <span className="px-5">
               in {departure.departure_timestamp.minutes} minutes
             </span>
-            <span className="text-right">{departure.trip.is_wheelchair_accessible ? "♿" : ""} {departure.trip.is_air_conditioned ? "❄️" : "🥵"}</span>
+            <span className="text-right">{departure.trip.is_wheelchair_accessible ? "♿" : ""} {departure.trip.is_air_conditioned === null ? "❓" : (departure.trip.is_air_conditioned ? "❄️" : "🥵")}</span>
           </>
         ))}
       </div>
