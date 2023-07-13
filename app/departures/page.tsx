@@ -34,7 +34,7 @@ export default async function Departures({
 
   return (
     <main className=" min-h-screen flex justify-center">
-      <div className="grid custom-grid mt-5 w-1/2">
+      <div className="grid custom-grid mt-5 w-full md:w-3/4 lg:w-1/2 mx-4">
         {departures.departures.map((departure: any) => (
           <>
             <span className="text-right">{departure.route.short_name}</span>
@@ -47,7 +47,7 @@ export default async function Departures({
         ))}
       </div>
       <Reload></Reload>
-      <Link href="/" className="absolute text-3xl bg-blue-500 hover:bg-blue-800 text-white rounded-full w-16 h-16 left-4 top-4 flex items-center justify-center"><FaArrowLeft></FaArrowLeft></Link>
+      <Link href="/" className="hidden md:flex absolute text-3xl bg-blue-500 hover:bg-blue-800 text-white rounded-full w-16 h-16 left-4 top-4 items-center justify-center"><FaArrowLeft></FaArrowLeft></Link>
     </main>
   );
 }
