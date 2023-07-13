@@ -29,7 +29,7 @@ export default function StationSelect({
         onChange={(option) =>
           router.push(
             "/departures?" +
-              new URLSearchParams([...(option?.value.map((id) => ["ids", id || ""]) || []), ["stop_name", option?.label]])
+              new URLSearchParams([...(option?.value.map((id) => ["ids", id || ""]) || []), ["stop_name", option?.label || ""]])
           )
         }
         components={{ Option: CustomOption }}
