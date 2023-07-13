@@ -14,6 +14,10 @@ export default async function Departures({
   if (typeof ids === "string") {
     ids = [ids];
   }
+  let stopName = searchParams["stop_name"] || "";
+  if(typeof stopName !== "string") {
+    stopName = ""
+  }
 
   const headers = new Headers();
   headers.append("X-Access-Token", process.env.API_KEY || "");
@@ -35,14 +39,15 @@ export default async function Departures({
   return (
     <main className=" min-h-screen flex justify-center">
       <div className="grid custom-grid mt-5 w-full md:w-3/4 lg:w-1/2 mx-4">
+        <span className="col-span-4 text-center text-2xl font-bold bg-gray-800 p-3 rounded-xl mb-3">{stopName}</span>
         {departures.departures.map((departure: any) => (
           <>
-            <span className="text-right">{departure.route.short_name}</span>
-            <span className="text-center">➡️ {departure.trip.headsign}</span>
-            <span className="px-5">
+            <span className="text-right border-b border-b-white py-2">{departure.route.short_name}</span>
+            <span className="text-center border-b border-b-white py-2">➡️ {departure.trip.headsign}</span>
+            <span className="px-5 border-b border-b-white py-2">
               in {departure.departure_timestamp.minutes} minutes
             </span>
-            <span className="text-right">{departure.trip.is_wheelchair_accessible ? "♿" : ""} {departure.trip.is_air_conditioned === null ? "❓" : (departure.trip.is_air_conditioned ? "❄️" : "🥵")}</span>
+            <span className="text-right border-b border-b-white py-2">{departure.trip.is_wheelchair_accessible ? "♿" : ""} {departure.trip.is_air_conditioned === null ? "❓" : (departure.trip.is_air_conditioned ? "❄️" : "🥵")}</span>
           </>
         ))}
       </div>
